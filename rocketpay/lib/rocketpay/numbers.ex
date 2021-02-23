@@ -8,16 +8,16 @@ defmodule Rocketpay.Numbers do
 
   # Pattern Matching
   defp handle_file({:ok, result}) do
-    result
+    result = result
     |> String.split(",")
     |> Enum.map(fn number -> String.to_integer(number) end)
     |> Enum.sum()
-
+    {:ok, %{result: result}}
     # or
     # result = String.split(result, ",")
     # result = Enum.map(result, fn number -> String.to_integer(number) end)
     # result = Enum.sum(result)
     # result ## in Elixir, the last line is already the return
   end
-  defp handle_file({:error, _reason}), do: {:error, "Invalid file!"}
+  defp handle_file({:error, _reason}), do: {:error, %{message: "Invalid file!"}}
 end
