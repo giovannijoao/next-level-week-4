@@ -4,6 +4,7 @@ defmodule Rocketpay.Numbers do
     handle_file(file)
   end
 
+  # Pattern Matching
   defp handle_file({:ok, file}), do: file
   defp handle_file({:error, _reason}), do: {:error, "Invalid file!"}
 end
