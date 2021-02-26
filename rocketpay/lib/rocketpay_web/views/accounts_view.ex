@@ -14,4 +14,25 @@ defmodule RocketpayWeb.AccountsView do
       }
     }
   end
+
+  def render("transaction.json", %{
+    transaction: %{
+      to_account: to_account,
+      from_account: from_account,
+    }
+  }) do
+    %{
+      message: "Transaction done successfully",
+      transaction: %{
+        from_account: %{
+          id: from_account.id,
+          to: from_account.balance,
+        },
+        to_account: %{
+          id: to_account.id,
+          to: to_account.balance,
+        }
+      }
+    }
+  end
 end
