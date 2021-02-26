@@ -29,7 +29,6 @@ defmodule Rocketpay.User do
     |> validate_format(:email, ~r/@/)
     |> unique_constraint([:email])
     |> unique_constraint([:nickname])
-    |> IO.inspect()
     |> put_password_hash()
   end
 
